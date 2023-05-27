@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>연산할 두 숫자를 입력하세요</h1>
+    <form action="{% url 'result' %}" method="GET">
+        <label for="num1">첫 번째 숫자 : </label>
+        <input type="text" id="num1" name="num1">
+        <label for="num2">두 번째 숫자 : </label>
+        <input type="text" id="num2" name="num2">
+        <input type="submit" value="계산!">
+    </form>
+</body>
+</html>
+{% comment %} id : 직접쓰진않지만 식별하기 위한 주민등록번호같은거, 고유해서 중복이 안됨
+name : form으로 보낼 때는 name으로 식별해서 이동한다. {% endcomment %}

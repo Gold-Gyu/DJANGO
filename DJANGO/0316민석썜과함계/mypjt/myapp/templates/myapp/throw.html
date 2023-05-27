@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>THROW</h1>
+    <form action="{% url 'catch' %}" method="GET">
+        <label for="message">다음 데이터를 보낸다 key : </label>
+        <input type="text" id="message" name="key">
+        <br>
+        <label for="message">다음 데이터를 보낸다 message : </label>
+        <input type="text" name="message">
+        <input type="submit">
+    </form>
+</body>
+</html>
+
+{% comment %} 서버에서 볼 때는 name을 통해 보기 때문에 네임이 중요하다 {% endcomment %}

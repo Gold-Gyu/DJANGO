@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center">DETAIL</h1>
+    <h1>{{article.pk}} 번째 글</h1>
+    <hr>
+    <p>제목 : {{article.title}}</p>
+    <p>내용 : {{article.content}}</p>
+    <p>작성 시각 : {{article.created_at}}</p>
+    <p>수정 시각 : {{article.updated_at}}</p>
+    <hr>
+    <a href="{% url 'articles:index' %}"><p>[back]</p></a>
+{% endblock content %}

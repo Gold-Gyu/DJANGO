@@ -1,0 +1,10 @@
+{% if user.username %}
+
+  <h3>Hello, {{ user }}</h3>
+  <form action="{% url 'accounts:logout' %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Logout">
+  </form>
+{% else %}
+  <a href="{% url 'accounts:login' %}">Login</a>
+{% endif %}

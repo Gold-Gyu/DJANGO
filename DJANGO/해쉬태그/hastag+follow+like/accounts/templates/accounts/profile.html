@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% comment %} person인 이유는 {% endcomment %}
+    <h1>{{person}}님의 프로필</h1>
+    <div>
+        Following : {{person.following.all|length}}명 | Follower : {{person.follower.all|length}}명
+        
+    </div>
+    {% comment %} {% if request.user == person.username %} {% endcomment %}
+    {% if user != person %}
+    
+    <form action="{% url 'accounts:follow' person.pk %}" method="POST">
+        {% csrf_token %}
+        {% if request.user in person.follower.all %}
+            <button class="btn btn-danger">Unfollow</button>
+        {% else %}
+            <button class="btn btn-primary">Follow</button>
+        {% endif %}
+    {% endif %}
+
+    </form>
+    <hr>
+
+
+    <h2>{{person}}'s 게시글</h2>
+    {% for movie in person.movie_set.all %}
+        <div>{{movie.title}}</div>
+    {% endfor %}
+    <hr>
+
+    <h2>{{person}}'s 댓글</h2>
+    {% for comment in person.comment_set.all %}
+        <div>{{comment.content}}</div>
+    {% endfor %}
+    <hr>
+    <a href="{% url 'movies:index' %}">[BACK]</a>
+
+{% endblock content %}

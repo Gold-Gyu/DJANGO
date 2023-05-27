@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>NEW 글 작성</h1>
+    <hr>
+    
+    <form action="{% url 'articles:create' %}" method="POST">
+        {% csrf_token %}
+    {% comment %} articles의 create로 보내주라 => create에게 데이터를 보내 데이터를 저장해달라고한다. {% endcomment %}
+        <label for="title">제목 : </label>
+        <input type="text" id="title" name="title"><br>
+
+        <label for="content">내용 :</label>
+        <input type="text" id="content" name="content"><br>
+
+        
+        <input type="submit" class="btn btn-primary" value="저장">
+
+    </form>
+ 
+{% endblock content %}
+

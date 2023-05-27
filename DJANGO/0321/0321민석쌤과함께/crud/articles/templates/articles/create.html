@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>글 작성</h1>
+<hr>
+
+<form action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="작성">
+</form>
+
+<a href="{% url 'articles:index' %}"><p>[back]</p></a>
+
+
+
+{% endblock content %}
